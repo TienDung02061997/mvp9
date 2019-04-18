@@ -1,4 +1,4 @@
-package com.example.mvp9.data.databse;
+package com.example.mvp9.Model.local;
 
 public class DataDeclare {
     public static final String DB_NAME = "DB_USER";

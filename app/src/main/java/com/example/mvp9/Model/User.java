@@ -1,4 +1,4 @@
-package com.example.mvp9.data;
+package com.example.mvp9.Model;
 
 public class User {
     private  String mUsername;

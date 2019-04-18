@@ -1,6 +1,4 @@
-package com.example.mvp9.tasks;
-
-import com.example.mvp9.data.User;
+package com.example.mvp9.TaskDetail.UserContract;
 
 public interface UserContractLogin {
     interface  Presenter{

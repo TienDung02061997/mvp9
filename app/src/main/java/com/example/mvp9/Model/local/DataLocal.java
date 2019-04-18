@@ -1,8 +1,6 @@
-package com.example.mvp9.data.databse;
+package com.example.mvp9.Model.local;
 
-import android.util.Log;
-
-import com.example.mvp9.data.User;
+import com.example.mvp9.Model.User;
 
 public class DataLocal implements MethodDatabase {
     UserDatabase mUserDatabase;

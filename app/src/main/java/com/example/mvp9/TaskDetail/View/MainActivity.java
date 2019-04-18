@@ -1,4 +1,4 @@
-package com.example.mvp9.tasks;
+package com.example.mvp9.TaskDetail.View;
 
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;

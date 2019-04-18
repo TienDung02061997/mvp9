@@ -1,8 +1,6 @@
-package com.example.mvp9.data.databse;
+package com.example.mvp9.Model.local;
 
-import com.example.mvp9.data.User;
-
-import java.util.List;
+import com.example.mvp9.Model.User;
 
 public interface MethodDatabase {
     void insertUser(User user);

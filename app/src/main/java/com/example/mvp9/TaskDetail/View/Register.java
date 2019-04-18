@@ -1,4 +1,4 @@
-package com.example.mvp9.tasks;
+package com.example.mvp9.TaskDetail.View;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -10,10 +10,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 import com.example.mvp9.R;
-import com.example.mvp9.data.Repostitory;
-import com.example.mvp9.data.User;
-import com.example.mvp9.data.databse.DataLocal;
-import com.example.mvp9.data.databse.UserDatabase;
+import com.example.mvp9.Model.Repostitory;
+import com.example.mvp9.Model.User;
+import com.example.mvp9.Model.local.DataLocal;
+import com.example.mvp9.Model.local.UserDatabase;
+import com.example.mvp9.TaskDetail.UserContract.UserContractRegister;
+import com.example.mvp9.TaskDetail.UserPresenter.UserRegister;
 
 public class Register extends Fragment implements android.view.View.OnClickListener, UserContractRegister.view {
     private EditText mEditText_UserName, mEditText_Password;

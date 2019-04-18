@@ -1,7 +1,7 @@
-package com.example.mvp9.tasks;
+package com.example.mvp9.TaskDetail.UserContract;
 
 
-import com.example.mvp9.data.User;
+import com.example.mvp9.Model.User;
 
 public interface UserContractRegister {
     interface  view {

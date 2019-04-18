@@ -5,7 +5,7 @@
     android:id="@+id/frag_login"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".tasks.Login">
+    tools:context=".TaskDetail.View.Login">
 
 
     <EditText

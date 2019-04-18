@@ -1,9 +1,7 @@
-package com.example.mvp9.data;
+package com.example.mvp9.Model;
 
-import com.example.mvp9.data.databse.DataLocal;
-import com.example.mvp9.data.databse.MethodDatabase;
-
-import java.util.List;
+import com.example.mvp9.Model.local.DataLocal;
+import com.example.mvp9.Model.local.MethodDatabase;
 
 public class Repostitory  implements MethodDatabase {
     private DataLocal mDataLocal;
