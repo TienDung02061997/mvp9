@@ -15,14 +15,14 @@ import com.example.mvp9.R;
 import com.example.mvp9.data.UserRepostitory;
 import com.example.mvp9.data.local.UserDataLocal;
 import com.example.mvp9.data.local.UserDatabase;
-import com.example.mvp9.ui.contract.UserContractLogin;
+import com.example.mvp9.ui.contract.UserLoginContract;
 import com.example.mvp9.ui.presenter.UserLoginPresenter;
 
-public class LoginFragment extends Fragment implements View.OnClickListener, UserContractLogin.View {
+public class LoginFragment extends Fragment implements View.OnClickListener, UserLoginContract.View {
     public View mView;
     protected EditText mEditTextUser, mEditTextPass;
     protected Button mButtonLogin, mButtonRegister;
-    protected UserContractLogin.Presenter mPresenter;
+    protected UserLoginContract.Presenter mPresenter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

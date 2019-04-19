@@ -3,13 +3,13 @@ package com.example.mvp9.ui.presenter;
 
 import com.example.mvp9.data.UserRepostitory;
 import com.example.mvp9.model.User;
-import com.example.mvp9.ui.contract.UserContractRegister;
+import com.example.mvp9.ui.contract.UserRegisterContract;
 
-public class UserRegisterPresenter implements  UserContractRegister.Presenter {
-    private  UserContractRegister.view mView;
+public class UserRegisterPresenter implements  UserRegisterContract.Presenter {
+    private  UserRegisterContract.view mView;
     private UserRepostitory mRepostitory;
 
-    public UserRegisterPresenter(UserContractRegister.view view, UserRepostitory repostitory) {
+    public UserRegisterPresenter(UserRegisterContract.view view, UserRepostitory repostitory) {
         mView = view;
         mRepostitory = repostitory;
     }

@@ -3,7 +3,7 @@ package com.example.mvp9.data.local;
 
 import com.example.mvp9.model.User;
 
-public class UserDataLocal implements MethodDatabase {
+public class UserDataLocal implements UserDataSource {
   private UserDatabase mUserDatabase;
 
     public UserDataLocal(UserDatabase userDatabase) {

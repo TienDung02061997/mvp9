@@ -14,15 +14,15 @@ import com.example.mvp9.data.UserRepostitory;
 import com.example.mvp9.data.local.UserDataLocal;
 import com.example.mvp9.data.local.UserDatabase;
 import com.example.mvp9.model.User;
-import com.example.mvp9.ui.contract.UserContractRegister;
+import com.example.mvp9.ui.contract.UserRegisterContract;
 import com.example.mvp9.ui.presenter.UserRegisterPresenter;
 
-public class RegisterFragment extends Fragment implements android.view.View.OnClickListener, UserContractRegister.view {
+public class RegisterFragment extends Fragment implements android.view.View.OnClickListener, UserRegisterContract.view {
     private EditText mEditText_UserName, mEditText_Password;
     private Button mButton;
     public android.view.View view;
     public User mUser;
-    public UserContractRegister.Presenter mPresenter;
+    public UserRegisterContract.Presenter mPresenter;
 
     @Override
     public android.view.View onCreateView(LayoutInflater inflater, ViewGroup container,

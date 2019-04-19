@@ -1,6 +1,6 @@
 package com.example.mvp9.ui.contract;
 
-public interface UserContractLogin {
+public interface UserLoginContract {
     interface  Presenter{
         void checkUser(String user);
     }
