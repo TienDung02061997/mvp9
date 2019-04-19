@@ -5,27 +5,27 @@
     android:id="@+id/frag_login"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.view.Login">
+    tools:context=".ui.view.LoginFragment">
 
 
     <EditText
         android:id="@+id/edit_userlogin"
-        android:layout_width="383dp"
+        android:layout_width="@dimen/dp_383"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="20dp"
         android:ems="10"
         android:hint="@string/enter_user"
         android:inputType="textPersonName"
         app:layout_constraintTop_toBottomOf="@+id/textLogin"
         tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="16dp" />
+        />
 
     <TextView
         android:textAlignment="center"
         android:id="@+id/textLogin"
         android:layout_width="145dp"
         android:layout_height="27dp"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="@dimen/dp_8"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
         android:text="@string/login"
@@ -37,23 +37,23 @@
 
     <EditText
         android:id="@+id/edit_passlogin"
-        android:layout_width="380dp"
+        android:layout_width="@dimen/dp_380"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="@dimen/dp_36"
         android:ems="10"
         android:hint="Enter Password"
         android:inputType="textPassword"
         app:layout_constraintTop_toBottomOf="@+id/edit_userlogin"
-        tools:layout_editor_absoluteX="19dp"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints"
+         />
 
     <Button
         android:id="@+id/button_Login"
-        android:layout_width="155dp"
+        android:layout_width="@dimen/dp_155"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginStart="@dimen/dp_8"
+        android:layout_marginTop="@dimen/dp_24"
+        android:layout_marginEnd="@dimen/dp_8"
         android:text="@string/login"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.045"
@@ -62,14 +62,14 @@
 
     <Button
         android:id="@+id/button_RegisterLogin"
-        android:layout_width="174dp"
-        android:layout_height="45dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="8dp"
-        android:text="@string/register"
+        android:layout_width="@dimen/dp_174"
+        android:layout_height="@dimen/dp_45"
+        android:layout_marginStart="@dimen/dp_8"
+        android:layout_marginTop="@dimen/dp_24"
+        android:layout_marginEnd="@dimen/dp_8"
+        android:text="@string/registerFragment"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.574"
         app:layout_constraintStart_toEndOf="@+id/button_Login"
         app:layout_constraintTop_toBottomOf="@+id/edit_passlogin" />
 </android.support.constraint.ConstraintLayout>

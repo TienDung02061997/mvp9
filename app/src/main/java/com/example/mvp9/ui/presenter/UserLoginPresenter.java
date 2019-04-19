@@ -1,13 +1,14 @@
-package com.example.mvp9.TaskDetail.UserPresenter;
+package com.example.mvp9.ui.presenter;
 
-import com.example.mvp9.Model.Repostitory;
-import com.example.mvp9.TaskDetail.UserContract.UserContractLogin;
 
-public class UserLogin implements  UserContractLogin.Presenter {
+import com.example.mvp9.data.UserRepostitory;
+import com.example.mvp9.ui.contract.UserContractLogin;
+
+public class UserLoginPresenter implements  UserContractLogin.Presenter {
     private  UserContractLogin.View mUserContractLogin;
-    private Repostitory mRepostitory;
+    private UserRepostitory mRepostitory;
 
-    public UserLogin(UserContractLogin.View userContractLogin, Repostitory repostitory) {
+    public UserLoginPresenter(UserContractLogin.View userContractLogin, UserRepostitory repostitory) {
         mUserContractLogin = userContractLogin;
         mRepostitory = repostitory;
     }

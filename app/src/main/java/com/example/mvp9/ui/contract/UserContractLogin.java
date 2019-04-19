@@ -1,4 +1,4 @@
-package com.example.mvp9.TaskDetail.UserContract;
+package com.example.mvp9.ui.contract;
 
 public interface UserContractLogin {
     interface  Presenter{

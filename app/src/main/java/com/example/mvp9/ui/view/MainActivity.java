@@ -1,11 +1,11 @@
-package com.example.mvp9;
+package com.example.mvp9.ui.view;
 
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-import com.example.mvp9.TaskDetail.View.Login;
+import com.example.mvp9.R;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
         replace();
     }
     public void replace(){
-        Login login =new Login();
+        LoginFragment login =new LoginFragment();
         FragmentManager fragmentManager=getSupportFragmentManager();
         FragmentTransaction fragmentTransaction=fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.frag_main,login);

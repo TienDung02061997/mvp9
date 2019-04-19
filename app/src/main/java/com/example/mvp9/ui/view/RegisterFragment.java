@@ -1,4 +1,4 @@
-package com.example.mvp9.TaskDetail.View;
+package com.example.mvp9.ui.view;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -10,14 +10,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 import com.example.mvp9.R;
-import com.example.mvp9.Model.Repostitory;
-import com.example.mvp9.Model.User;
-import com.example.mvp9.Model.local.DataLocal;
-import com.example.mvp9.Model.local.UserDatabase;
-import com.example.mvp9.TaskDetail.UserContract.UserContractRegister;
-import com.example.mvp9.TaskDetail.UserPresenter.UserRegister;
+import com.example.mvp9.data.UserRepostitory;
+import com.example.mvp9.data.local.UserDataLocal;
+import com.example.mvp9.data.local.UserDatabase;
+import com.example.mvp9.model.User;
+import com.example.mvp9.ui.contract.UserContractRegister;
+import com.example.mvp9.ui.presenter.UserRegisterPresenter;
 
-public class Register extends Fragment implements android.view.View.OnClickListener, UserContractRegister.view {
+public class RegisterFragment extends Fragment implements android.view.View.OnClickListener, UserContractRegister.view {
     private EditText mEditText_UserName, mEditText_Password;
     private Button mButton;
     public android.view.View view;
@@ -30,7 +30,7 @@ public class Register extends Fragment implements android.view.View.OnClickListe
         view = inflater.inflate(R.layout.fragment_register, container, false);
         FindByID();
         EventClick();
-        mPresenter=new UserRegister(this,new Repostitory(new DataLocal(new UserDatabase(getActivity()))));
+        mPresenter=new UserRegisterPresenter(this, new UserRepostitory(new UserDataLocal(new UserDatabase(getActivity()))));
         return view;
     }
 
@@ -56,10 +56,10 @@ public class Register extends Fragment implements android.view.View.OnClickListe
         }
     }
     public void replace() {
-        Login login = new Login();
+        LoginFragment loginFragment = new LoginFragment();
         FragmentManager manager = getFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();
-        transaction.replace(R.id.frag_main, login);
+        transaction.replace(R.id.frag_main, loginFragment);
         transaction.addToBackStack(null);
         transaction.commit();
     }

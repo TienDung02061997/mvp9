@@ -5,12 +5,12 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.util.Log;
 
-import com.example.mvp9.data.User;
+import com.example.mvp9.model.User;
 
 
 public class UserDatabase  extends SQLiteOpenHelper implements MethodDatabase {
+
     public UserDatabase(Context context) {
         super(context, DataDeclare.DB_NAME, null, DataDeclare.VESION);
     }

@@ -1,4 +1,4 @@
-package com.example.mvp9.TaskDetail.View;
+package com.example.mvp9.ui.view;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -12,17 +12,17 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.mvp9.R;
-import com.example.mvp9.Model.Repostitory;
-import com.example.mvp9.Model.local.DataLocal;
-import com.example.mvp9.Model.local.UserDatabase;
-import com.example.mvp9.TaskDetail.UserContract.UserContractLogin;
-import com.example.mvp9.TaskDetail.UserPresenter.UserLogin;
+import com.example.mvp9.data.UserRepostitory;
+import com.example.mvp9.data.local.UserDataLocal;
+import com.example.mvp9.data.local.UserDatabase;
+import com.example.mvp9.ui.contract.UserContractLogin;
+import com.example.mvp9.ui.presenter.UserLoginPresenter;
 
-public class Login extends Fragment implements View.OnClickListener, UserContractLogin.View {
+public class LoginFragment extends Fragment implements View.OnClickListener, UserContractLogin.View {
     public View mView;
     protected EditText mEditTextUser, mEditTextPass;
     protected Button mButtonLogin, mButtonRegister;
-    private UserContractLogin.Presenter mPresenter;
+    protected UserContractLogin.Presenter mPresenter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -30,8 +30,7 @@ public class Login extends Fragment implements View.OnClickListener, UserContrac
         mView = inflater.inflate(R.layout.fragment_login, container, false);
         FoundId();
         EventClick();
-        mPresenter =new UserLogin(this,new Repostitory
-                (new DataLocal(new UserDatabase(getActivity()))));
+        mPresenter = new UserLoginPresenter(this, new UserRepostitory(new UserDataLocal(new UserDatabase(getActivity()))));
         return mView;
     }
 
@@ -62,10 +61,10 @@ public class Login extends Fragment implements View.OnClickListener, UserContrac
     }
 
     private void replaceRegister() {
-        Register register =new Register();
+        RegisterFragment registerFragment =new RegisterFragment();
         FragmentManager fragmentManager=getFragmentManager();
         FragmentTransaction fragmentTransaction=fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.frag_main,register);
+        fragmentTransaction.replace(R.id.frag_main, registerFragment);
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
     }
