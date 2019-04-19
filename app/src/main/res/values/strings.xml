@@ -3,4 +3,8 @@
     <string name="hello">hello</string>
     <string name="msg_login">User login success</string>
     <string name="msg_loginfail">login faill</string>
+    <string name="enter_user">Enter User</string>
+    <string name="login">Login</string>
+    <string name="login">Login</string>
+    <string name="register">Register</string>
 </resources>

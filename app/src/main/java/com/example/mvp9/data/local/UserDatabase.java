@@ -11,7 +11,6 @@ import com.example.mvp9.data.User;
 
 
 public class UserDatabase  extends SQLiteOpenHelper implements MethodDatabase {
-
     public UserDatabase(Context context) {
         super(context, DataDeclare.DB_NAME, null, DataDeclare.VESION);
     }
@@ -21,12 +20,7 @@ public class UserDatabase  extends SQLiteOpenHelper implements MethodDatabase {
         ContentValues values = new ContentValues();
         values.put(DataDeclare.USER_NAME, user.getUsername());
         values.put(DataDeclare.PASSWORD, user.getPassword());
-        long checkinsert = sqLiteDatabase.insert(DataDeclare.DB_TABLE, null, values);
-        if (checkinsert > 0) {
-            Log.d("insert", "complete  insertUser");
-        } else {
-            Log.d("insert", "false");
-        }
+        sqLiteDatabase.insert(DataDeclare.DB_TABLE, null, values);
     }
 
     @Override
@@ -41,7 +35,6 @@ public class UserDatabase  extends SQLiteOpenHelper implements MethodDatabase {
         }
         return true;
     }
-
 
     @Override
     public void onCreate(SQLiteDatabase db) {
