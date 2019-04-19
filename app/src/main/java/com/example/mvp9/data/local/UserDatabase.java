@@ -10,8 +10,6 @@ import com.example.mvp9.model.User;
 
 
 public class UserDatabase  extends SQLiteOpenHelper implements UserDataSource {
-
-
     public UserDatabase(Context context) {
         super(context, DataDeclare.DB_NAME, null, DataDeclare.VESION);
     }

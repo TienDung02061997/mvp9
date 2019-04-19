@@ -13,14 +13,15 @@ import android.widget.Toast;
 
 import com.example.mvp9.R;
 import com.example.mvp9.data.UserRepostitory;
-import com.example.mvp9.data.local.UserDataLocal;
+import com.example.mvp9.data.local.UserLocalDataSource;
 import com.example.mvp9.data.local.UserDatabase;
 import com.example.mvp9.ui.contract.UserLoginContract;
 import com.example.mvp9.ui.presenter.UserLoginPresenter;
 
 public class LoginFragment extends Fragment implements View.OnClickListener, UserLoginContract.View {
     public View mView;
-    protected EditText mEditTextUser, mEditTextPass;
+    private EditText mEditTextUser;
+    private EditText mEditTextPass;
     protected Button mButtonLogin, mButtonRegister;
     protected UserLoginContract.Presenter mPresenter;
 
@@ -30,7 +31,8 @@ public class LoginFragment extends Fragment implements View.OnClickListener, Use
         mView = inflater.inflate(R.layout.fragment_login, container, false);
         FoundId();
         EventClick();
-        mPresenter = new UserLoginPresenter(this, new UserRepostitory(new UserDataLocal(new UserDatabase(getActivity()))));
+        mPresenter = new UserLoginPresenter(this, new UserRepostitory(
+                new UserLocalDataSource(new UserDatabase(getActivity()))));
         return mView;
     }
 

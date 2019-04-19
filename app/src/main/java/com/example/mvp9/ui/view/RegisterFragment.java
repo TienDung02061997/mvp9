@@ -11,14 +11,15 @@ import android.widget.EditText;
 import android.widget.Toast;
 import com.example.mvp9.R;
 import com.example.mvp9.data.UserRepostitory;
-import com.example.mvp9.data.local.UserDataLocal;
+import com.example.mvp9.data.local.UserLocalDataSource;
 import com.example.mvp9.data.local.UserDatabase;
 import com.example.mvp9.model.User;
 import com.example.mvp9.ui.contract.UserRegisterContract;
 import com.example.mvp9.ui.presenter.UserRegisterPresenter;
 
 public class RegisterFragment extends Fragment implements android.view.View.OnClickListener, UserRegisterContract.view {
-    private EditText mEditText_UserName, mEditText_Password;
+    private EditText mEditText_UserName;
+    private EditText mEditText_Password;
     private Button mButton;
     public android.view.View view;
     public User mUser;
@@ -30,7 +31,8 @@ public class RegisterFragment extends Fragment implements android.view.View.OnCl
         view = inflater.inflate(R.layout.fragment_register, container, false);
         FindByID();
         EventClick();
-        mPresenter=new UserRegisterPresenter(this, new UserRepostitory(new UserDataLocal(new UserDatabase(getActivity()))));
+        mPresenter=new UserRegisterPresenter(this, new UserRepostitory(new UserLocalDataSource(
+                new UserDatabase(getActivity()))));
         return view;
     }
 
@@ -42,7 +44,6 @@ public class RegisterFragment extends Fragment implements android.view.View.OnCl
         mEditText_UserName = view.findViewById(R.id.edit_userlogin);
         mEditText_Password = view.findViewById(R.id.edit_password);
         mButton = view.findViewById(R.id.button_add_user);
-
     }
 
     @Override
@@ -64,7 +65,6 @@ public class RegisterFragment extends Fragment implements android.view.View.OnCl
         transaction.commit();
     }
 
-
     public void  addUser(){
         String username = mEditText_UserName.getText().toString();
         String password = mEditText_Password.getText().toString();
@@ -79,5 +79,4 @@ public class RegisterFragment extends Fragment implements android.view.View.OnCl
         replace();
         Toast.makeText(getContext(), "thanh cong", Toast.LENGTH_SHORT).show();
     }
-
 }

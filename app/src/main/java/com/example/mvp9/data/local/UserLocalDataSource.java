@@ -3,10 +3,10 @@ package com.example.mvp9.data.local;
 
 import com.example.mvp9.model.User;
 
-public class UserDataLocal implements UserDataSource {
+public class UserLocalDataSource implements UserDataSource {
   private UserDatabase mUserDatabase;
 
-    public UserDataLocal(UserDatabase userDatabase) {
+    public UserLocalDataSource(UserDatabase userDatabase) {
         mUserDatabase = userDatabase;
     }
 
@@ -24,5 +24,4 @@ public class UserDataLocal implements UserDataSource {
             return false;
         }
     }
-
 }

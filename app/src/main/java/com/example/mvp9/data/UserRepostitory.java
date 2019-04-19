@@ -19,7 +19,7 @@ public class UserRepostitory implements UserDataSource {
         return instance;
     }
 
-    private UserRepostitory(UserDataSource userDataSource) {
+    public UserRepostitory(UserDataSource userDataSource) {
         mUserDataLocal =  userDataSource;
     }
 
@@ -36,6 +36,4 @@ public class UserRepostitory implements UserDataSource {
             return false;
         }
     }
-
-
 }
