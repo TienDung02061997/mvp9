@@ -1,7 +1,7 @@
-package com.example.mvp9.Model;
+package com.example.mvp9.data;
 
-import com.example.mvp9.Model.local.DataLocal;
-import com.example.mvp9.Model.local.MethodDatabase;
+import com.example.mvp9.data.local.DataLocal;
+import com.example.mvp9.data.local.MethodDatabase;
 
 public class Repostitory  implements MethodDatabase {
     private DataLocal mDataLocal;
@@ -9,6 +9,7 @@ public class Repostitory  implements MethodDatabase {
     public Repostitory(DataLocal dataLocal) {
         mDataLocal = dataLocal;
     }
+
 
     @Override
     public void insertUser(User user) {

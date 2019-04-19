@@ -1,9 +1,10 @@
-package com.example.mvp9.Model.local;
+package com.example.mvp9.data.local;
 
-import com.example.mvp9.Model.User;
+
+import com.example.mvp9.data.User;
 
 public class DataLocal implements MethodDatabase {
-    UserDatabase mUserDatabase;
+  private UserDatabase mUserDatabase;
 
     public DataLocal(UserDatabase userDatabase) {
         mUserDatabase = userDatabase;

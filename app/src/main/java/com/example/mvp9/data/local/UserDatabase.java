@@ -1,4 +1,4 @@
-package com.example.mvp9.Model.local;
+package com.example.mvp9.data.local;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -7,7 +7,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
-import com.example.mvp9.Model.User;
+import com.example.mvp9.data.User;
+
 
 public class UserDatabase  extends SQLiteOpenHelper implements MethodDatabase {
 
