@@ -9,24 +9,26 @@ import android.database.sqlite.SQLiteOpenHelper;
 import com.example.mvp9.model.User;
 
 
-public class UserDatabase  extends SQLiteOpenHelper implements UserDataSource {
-    public UserDatabase(Context context) {
-        super(context, DataDeclare.DB_NAME, null, DataDeclare.VESION);
+public class UserDatabase extends SQLiteOpenHelper implements UserDataSource {
+
+    public UserDatabase(Context context ) {
+        super(context, DataConstants.DB_NAME, null, DataConstants.VESION);
     }
+
     @Override
     public void insertUser(User user) {
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put(DataDeclare.USER_NAME, user.getUsername());
-        values.put(DataDeclare.PASSWORD, user.getPassword());
-        sqLiteDatabase.insert(DataDeclare.DB_TABLE, null, values);
+        values.put(DataConstants.USER_NAME, user.getUsername());
+        values.put(DataConstants.PASSWORD, user.getPassword());
+        sqLiteDatabase.insert(DataConstants.DB_TABLE, null, values);
     }
 
     @Override
     public boolean checkUser(String user) {
         SQLiteDatabase sqLiteDatabase=this.getWritableDatabase();
-        Cursor cursor = sqLiteDatabase.query(DataDeclare.DB_TABLE,null,
-                DataDeclare.USER_NAME +" = ?",new String[]{user},
+        Cursor cursor = sqLiteDatabase.query(DataConstants.DB_TABLE,null,
+                DataConstants.USER_NAME +" = ?",new String[]{user},
                 null,null,null);
         cursor.moveToFirst();
         if(cursor.getCount()==0){
@@ -37,10 +39,10 @@ public class UserDatabase  extends SQLiteOpenHelper implements UserDataSource {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String SQL = "CREATE TABLE " + DataDeclare.DB_TABLE +
-                " ( " + DataDeclare.ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                DataDeclare.USER_NAME + " TEXT , " +
-                DataDeclare.PASSWORD + " TEXT )";
+        String SQL = "CREATE TABLE " + DataConstants.DB_TABLE +
+                " ( " + DataConstants.ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                DataConstants.USER_NAME + " TEXT , " +
+                DataConstants.PASSWORD + " TEXT )";
         db.execSQL(SQL);
     }
 

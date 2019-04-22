@@ -6,7 +6,6 @@ import com.example.mvp9.model.User;
 public class UserRepostitory implements UserDataSource {
     private UserDataSource mUserDataLocal;
     private static  UserRepostitory instance;
-    private UserRepostitory(){}
     public static UserRepostitory getInstance(UserDataSource userDataSource)
     {
         if(instance==null){
@@ -19,7 +18,7 @@ public class UserRepostitory implements UserDataSource {
         return instance;
     }
 
-    public UserRepostitory(UserDataSource userDataSource) {
+    private UserRepostitory(UserDataSource userDataSource) {
         mUserDataLocal =  userDataSource;
     }
 
@@ -30,10 +29,6 @@ public class UserRepostitory implements UserDataSource {
 
     @Override
     public boolean checkUser(String user) {
-        if(mUserDataLocal.checkUser(user)){
-            return true;
-        }else {
-            return false;
-        }
+        return mUserDataLocal.checkUser(user);
     }
 }

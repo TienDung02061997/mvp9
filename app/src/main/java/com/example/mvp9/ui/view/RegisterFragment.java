@@ -1,5 +1,6 @@
 package com.example.mvp9.ui.view;
 
+import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -9,10 +10,11 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
 import com.example.mvp9.R;
 import com.example.mvp9.data.UserRepostitory;
-import com.example.mvp9.data.local.UserLocalDataSource;
 import com.example.mvp9.data.local.UserDatabase;
+import com.example.mvp9.data.local.UserLocalDataSource;
 import com.example.mvp9.model.User;
 import com.example.mvp9.ui.contract.UserRegisterContract;
 import com.example.mvp9.ui.presenter.UserRegisterPresenter;
@@ -29,18 +31,18 @@ public class RegisterFragment extends Fragment implements android.view.View.OnCl
     public android.view.View onCreateView(LayoutInflater inflater, ViewGroup container,
                                           Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_register, container, false);
-        FindByID();
-        EventClick();
-        mPresenter=new UserRegisterPresenter(this, new UserRepostitory(new UserLocalDataSource(
-                new UserDatabase(getActivity()))));
+        findByID();
+        eventClick();
+        mPresenter = new UserRegisterPresenter(this, UserRepostitory.getInstance(
+                new UserLocalDataSource(new UserDatabase(getContext()))));
         return view;
     }
 
-    private void EventClick() {
+    private void eventClick() {
         mButton.setOnClickListener(this);
     }
 
-    private void FindByID() {
+    private void findByID() {
         mEditText_UserName = view.findViewById(R.id.edit_userlogin);
         mEditText_Password = view.findViewById(R.id.edit_password);
         mButton = view.findViewById(R.id.button_add_user);
@@ -56,6 +58,7 @@ public class RegisterFragment extends Fragment implements android.view.View.OnCl
                 break;
         }
     }
+
     public void replace() {
         LoginFragment loginFragment = new LoginFragment();
         FragmentManager manager = getFragmentManager();
@@ -65,10 +68,10 @@ public class RegisterFragment extends Fragment implements android.view.View.OnCl
         transaction.commit();
     }
 
-    public void  addUser(){
+    public void addUser() {
         String username = mEditText_UserName.getText().toString();
         String password = mEditText_Password.getText().toString();
-        mUser =new User();
+        mUser = new User();
         mUser.setUsername(username);
         mUser.setPassword(password);
         mPresenter.addUser(mUser);

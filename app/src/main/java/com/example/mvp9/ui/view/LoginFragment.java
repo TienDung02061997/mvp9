@@ -13,8 +13,8 @@ import android.widget.Toast;
 
 import com.example.mvp9.R;
 import com.example.mvp9.data.UserRepostitory;
-import com.example.mvp9.data.local.UserLocalDataSource;
 import com.example.mvp9.data.local.UserDatabase;
+import com.example.mvp9.data.local.UserLocalDataSource;
 import com.example.mvp9.ui.contract.UserLoginContract;
 import com.example.mvp9.ui.presenter.UserLoginPresenter;
 
@@ -29,19 +29,20 @@ public class LoginFragment extends Fragment implements View.OnClickListener, Use
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         mView = inflater.inflate(R.layout.fragment_login, container, false);
-        FoundId();
-        EventClick();
-        mPresenter = new UserLoginPresenter(this, new UserRepostitory(
-                new UserLocalDataSource(new UserDatabase(getActivity()))));
+        // chu thuong
+        foundId();
+        eventClick();
+        mPresenter = new UserLoginPresenter(this, UserRepostitory.getInstance(
+                new UserLocalDataSource(new UserDatabase(getContext()))));
         return mView;
     }
 
-    private void EventClick() {
+    private void eventClick() {
         mButtonLogin.setOnClickListener(this);
         mButtonRegister.setOnClickListener(this);
     }
 
-    private void FoundId() {
+    private void foundId() {
         mEditTextUser = mView.findViewById(R.id.edit_userlogin);
         mEditTextPass = mView.findViewById(R.id.edit_passlogin);
         mButtonLogin = mView.findViewById(R.id.button_Login);
@@ -63,16 +64,16 @@ public class LoginFragment extends Fragment implements View.OnClickListener, Use
     }
 
     private void replaceRegister() {
-        RegisterFragment registerFragment =new RegisterFragment();
-        FragmentManager fragmentManager=getFragmentManager();
-        FragmentTransaction fragmentTransaction=fragmentManager.beginTransaction();
+        RegisterFragment registerFragment = new RegisterFragment();
+        FragmentManager fragmentManager = getFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.frag_main, registerFragment);
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
     }
 
     private void checklogin() {
-        String user=mEditTextUser.getText().toString();
+        String user = mEditTextUser.getText().toString();
         mPresenter.checkUser(user);
     }
 

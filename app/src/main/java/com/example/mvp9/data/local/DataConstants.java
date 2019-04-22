@@ -1,6 +1,6 @@
 package com.example.mvp9.data.local;
 
-public class DataDeclare {
+public class DataConstants  {
     public static final String DB_NAME = "DB_USER";
     public static final String DB_TABLE = "USER";
     public static final String ID = "ID";
