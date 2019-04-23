@@ -1,34 +1,37 @@
 package com.example.mvp9.data;
 
+import com.example.mvp9.data.local.LoginUserAsyncTask;
+import com.example.mvp9.data.local.RegisterUserAsyncTask;
 import com.example.mvp9.data.local.UserDataSource;
 import com.example.mvp9.model.User;
 
 public class UserRepostitory implements UserDataSource {
     private UserDataSource mUserDataLocal;
-    private static  UserRepostitory instance;
-    public static UserRepostitory getInstance(UserDataSource userDataSource)
-    {
-        if(instance==null){
-            synchronized (UserRepostitory.class){
-                if(instance==null){
-                    instance=new UserRepostitory(userDataSource);
+    private static UserRepostitory sInstance;
+
+    public static UserRepostitory getInstance(UserDataSource userDataSource) {
+        if (sInstance == null) {
+            synchronized (UserRepostitory.class) {
+                if (sInstance == null) {
+                    sInstance = new UserRepostitory(userDataSource);
                 }
             }
         }
-        return instance;
+        return sInstance;
     }
 
-    private UserRepostitory(UserDataSource userDataSource) {
-        mUserDataLocal =  userDataSource;
-    }
-
-    @Override
-    public void insertUser(User user) {
-        mUserDataLocal.insertUser(user);
+    private UserRepostitory(UserDataSource userDataLocal) {
+        mUserDataLocal = userDataLocal;
     }
 
     @Override
-    public boolean checkUser(String user) {
-        return mUserDataLocal.checkUser(user);
+    public void insertUser(User user, RegisterUserAsyncTask.RegisterUserCallback registerUserCallback) {
+        mUserDataLocal.insertUser(user, registerUserCallback);
     }
+
+    @Override
+    public void isUserExisted(User user, LoginUserAsyncTask.LoginUserCallback loginUserCallback) {
+        mUserDataLocal.isUserExisted(user, loginUserCallback);
+    }
+
 }

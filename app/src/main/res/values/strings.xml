@@ -6,4 +6,6 @@
     <string name="enter_user">Enter User</string>
     <string name="registerFragment">Register</string>
     <string name="login">Login</string>
+    <string name="msg_success">thanh cong</string>
+    <string name="msg_faill">that bai</string>
 </resources>

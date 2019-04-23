@@ -8,30 +8,32 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import com.example.mvp9.model.User;
 
+public class UserDatabase extends SQLiteOpenHelper {
 
-public class UserDatabase extends SQLiteOpenHelper implements UserDataSource {
-
-    public UserDatabase(Context context ) {
+    public UserDatabase(Context context) {
         super(context, DataConstants.DB_NAME, null, DataConstants.VESION);
     }
 
-    @Override
-    public void insertUser(User user) {
-        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+    public boolean insertUser(User user) {
+        SQLiteDatabase database = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(DataConstants.USER_NAME, user.getUsername());
         values.put(DataConstants.PASSWORD, user.getPassword());
-        sqLiteDatabase.insert(DataConstants.DB_TABLE, null, values);
+        long success = database.insert(DataConstants.DB_TABLE, null, values);
+        if (success > 0) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
-    @Override
-    public boolean checkUser(String user) {
-        SQLiteDatabase sqLiteDatabase=this.getWritableDatabase();
-        Cursor cursor = sqLiteDatabase.query(DataConstants.DB_TABLE,null,
-                DataConstants.USER_NAME +" = ?",new String[]{user},
-                null,null,null);
+    public boolean isUserExisted(User user) {
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+        Cursor cursor = sqLiteDatabase.query(DataConstants.DB_TABLE, null,
+                DataConstants.USER_NAME + " = ?", new String[]{user.getUsername()},
+                null, null, null);
         cursor.moveToFirst();
-        if(cursor.getCount()==0){
+        if (cursor.getCount() == 0) {
             return false;
         }
         return true;
@@ -50,4 +52,5 @@ public class UserDatabase extends SQLiteOpenHelper implements UserDataSource {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
     }
+
 }

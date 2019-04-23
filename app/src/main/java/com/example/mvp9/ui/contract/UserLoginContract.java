@@ -1,11 +1,14 @@
 package com.example.mvp9.ui.contract;
 
+import com.example.mvp9.model.User;
+
 public interface UserLoginContract {
-    interface  Presenter{
-        void checkUser(String user);
+    interface Presenter {
+        void excuteLogin(User username);
     }
-    interface  View{
-        void LoginSuccess();
-        void LoginFail();
+
+    interface View {
+        void showLoginSuccessfully();
+        void showLoginFailed();
     }
 }

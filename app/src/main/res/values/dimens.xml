@@ -9,4 +9,9 @@
     <dimen name="dp_155">155dp</dimen>
     <dimen name="dp_174">174dp</dimen>
     <dimen name="dp_45">45dp</dimen>
+    <dimen name="margintop_20dp">20dp</dimen>
+    <dimen name="width_145">145dp</dimen>
+    <dimen name="height_27">27dp</dimen>
+    <dimen name="marginend_20">8dp</dimen>
+    <dimen name="textsize_20">20sp</dimen>
 </resources>
